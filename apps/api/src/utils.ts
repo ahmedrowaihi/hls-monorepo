@@ -3,7 +3,6 @@ import fs from "fs";
 import multer from "multer";
 import { platform } from "os";
 import path from "path";
-import { queue } from "./worker";
 
 import { videoDB } from "./db";
 
@@ -17,7 +16,6 @@ export async function FlushAllData() {
   }
   await rmFolder(uploadsPath, outputDir);
   await videoDB.deleteAll();
-  await queue.clean(0, 0);
 }
 
 export function mergePath(...paths: string[]) {
@@ -26,7 +24,11 @@ export function mergePath(...paths: string[]) {
 
 export async function rmFolder(...folder: string[]) {
   for (const f of folder) {
-    await fs.promises.rm(f, { recursive: true, force: true });
+    try {
+      await fs.promises.rm(f, { recursive: true, force: true });
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 

@@ -1,3 +1,6 @@
 [submodule "packages/hlsify"]
 	path = packages/hlsify
 	url = https://github.com/ahmedrowaihi/hlsify
+[submodule "packages/hlsify-worker"]
+	path = packages/hlsify-worker
+	url = git@github.com:ahmedrowaihi/hlsify-worker.git

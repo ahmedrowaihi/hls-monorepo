@@ -13,13 +13,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ahmedrowaihi/hlsify": "workspace:*",
+    "@ahmedrowaihi/hlsify-worker": "workspace:*",
     "bullmq": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "hls-server": "^1.5.0",
     "knex": "^3.1.0",
     "morgan": "^1.10.0",
-    "@ahmedrowaihi/hlsify": "workspace:*",
     "multer": "1.4.5-lts.1",
     "sqlite3": "^5.1.7"
   },

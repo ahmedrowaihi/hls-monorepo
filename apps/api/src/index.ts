@@ -4,8 +4,8 @@ import morgan from "morgan";
 
 import { generatePlayerHTML, generateVideosListHTML } from "./templates";
 
-import { queue } from "./worker";
 import { videoDB } from "./db";
+import { addBulk, obliterate, queue } from "./queue";
 
 import {
   FlushAllData,
@@ -68,15 +68,12 @@ app.post("/upload", upload.array("files", 5), async (req, res) => {
       }))
     );
 
-    await queue.addBulk(
+    await addBulk(
       videos.map((video) => ({
-        name: "encode",
-        data: {
-          id: video.id,
-          title: video.title,
-          output: mergePath(outputDir, video.file_path.split(".")[0]),
-          input: mergePath(uploadsPath, video.file_path),
-        },
+        id: video.id,
+        title: video.title,
+        output: mergePath(outputDir, video.file_path.split(".")[0]),
+        input: mergePath(uploadsPath, video.file_path),
       }))
     );
 
@@ -89,9 +86,17 @@ app.post("/upload", upload.array("files", 5), async (req, res) => {
   }
 });
 
-app.get("/flush", async (_, res) => {
+app.get("/f", async (_, res) => {
+  await obliterate();
   await FlushAllData();
   res.json({ ok: true });
+});
+
+app.get("/q", async (_, res) => {
+  const jobs = await queue.getJobs();
+  res.set("Content-Type", "application/json");
+  console.log(jobs);
+  res.json(jobs);
 });
 
 const port = process.env.PORT || 5001;
