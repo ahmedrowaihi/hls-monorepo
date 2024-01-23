@@ -29,8 +29,12 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `api`: a [Express.js](https://expressjs.com/) app | simple PoC for upload/encode video to hls
-- `econde`: a portable [Node.js](https://nodejs.org/en/) package that utilizes [ffmpeg](https://ffmpeg.org/) to encode video to hls
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `hlsify`: a portable [Node.js](https://nodejs.org/en/) package that utilizes [ffmpeg](https://ffmpeg.org/) to encode video to hls
+- `hlsify-worker`: a framework agnostic pre-setup `mq` worker for `hlsify` package, with hot sauce 🌶️ and hooks 🔗.
+
+#### examples
+
+- `app/api` app uses `hlsify` package to encode video to hls
+- other examples are at [hlsify](https://github.com/ahmedrowaihi/hlsify-example) repo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
