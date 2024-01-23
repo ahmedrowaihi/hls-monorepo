@@ -1,4 +1,4 @@
-import { LocalStorageAdapter, encodeVideo } from "@ahmedrowaihi/encode";
+import { LocalStorageAdapter, encodeVideo } from "@ahmedrowaihi/hlsify";
 import type { Job } from "bullmq";
 import { Queue, Worker } from "bullmq";
 import { videoDB } from "./db";

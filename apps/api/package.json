@@ -19,7 +19,7 @@
     "hls-server": "^1.5.0",
     "knex": "^3.1.0",
     "morgan": "^1.10.0",
-    "@ahmedrowaihi/encode": "workspace:*",
+    "@ahmedrowaihi/hlsify": "workspace:*",
     "multer": "1.4.5-lts.1",
     "sqlite3": "^5.1.7"
   },
