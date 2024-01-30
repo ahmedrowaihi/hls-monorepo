@@ -1,11 +1,11 @@
-# Turborepo Express.js/ffmpeg PoC
+# HLS Mono Express.js/ffmpeg PoC
 
 ## Using this example
 
 Run the following command:
 
 ```sh
-git clone https://github.com/ahmedrowaihi/turborepo-express-ffmpeg-poc.git
+git clone https://github.com/ahmedrowaihi/hls-monorepo
 ```
 
 ## Getting Started
